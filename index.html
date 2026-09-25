@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gửi cậu một mùa trăng nho nhỏ của tớ 🌙</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Thêm font Dancing Script để làm chữ ký/tiêu đề thêm mềm mại -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ===== NHẠC ===== -->
+
+    <audio id="music" src="Love Theme.mp3" preload="metadata"></audio>
+
+    <div class="music-player">
+
+        <button class="music-play" id="musicPlay">
+            ▶
+        </button>
+
+        <div class="music-info">
+
+            <div class="music-title">
+                🌙 bấm tui để nghe nhạc của dhien:>
+            </div>
+
+            <div class="music-volume">
+
+                <span>🔈</span>
+
+                <input id="musicVolume" type="range" min="0" max="100" value="35">
+
+                <span id="volumeIcon">🔊</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="sky"></div>
+
+    <div class="stars" id="stars"></div>
+
+    <div class="moon">
+        <div class="moon-glow"></div>
+    </div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <div class="lantern lantern-1">🏮</div>
+    <div class="lantern lantern-2">🏮</div>
+    <div class="lantern lantern-3">🏮</div>
+
+    <!-- =========================
+         THỎ TRANG TRÍ
+    ========================== -->
+
+    <div class="bunny bunny-1">🐇</div>
+    <div class="bunny bunny-2">🐇</div>
+    <div class="bunny bunny-3">🐇</div>
+    <div class="bunny bunny-4">🐰</div>
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <main class="intro" id="intro">
+
+        <div class="intro-bunny">
+            🐇
+        </div>
+
+        <p class="small-title">
+            Một đêm Trung Thu nhỏ xinh nèeee
+        </p>
+
+        <h1>
+            Gửi nglinhh<br>
+            <span>một mùa trăng của dhien</span>
+        </h1>
+
+        <p class="intro-text">
+            Có vài điều tớ muốn nói với cậu.<br>
+            Nhưng có lẽ... viết thành những chiếc bánh ngon nì<br>
+            sẽ dễ hơn một chút.
+        </p>
+
+        <button class="main-button" id="openBox">
+            🎀 mở hộp bánh :
+        </button>
+
+        <p class="hint">
+            Có một bé thỏ non đang đợi cậu...
+        </p>
+
+    </main>
+
+
+    <!-- =========================
+         HỘP BÁNH
+    ========================== -->
+
+    <section class="box-section hidden" id="boxSection">
+
+        <div class="box-title">
+            <p>tặng cậu nà, mốt sau ăn bánh thật nghen</p>
+            <h2> bánh tớ tự làm nè :></h2>
+            <span>
+                Mỗi chiếc bánh có một điều tớ muốn tâm sự
+            </span>
+        </div>
+
+        <div class="cake-box">
+
+            <div class="box-lid">
+                <div class="ribbon"></div>
+            </div>
+
+            <div class="box-body">
+
+                <div class="cake cake-green" data-letter="0">
+                    <div class="cake-top"></div>
+                    <span>🌿</span>
+                </div>
+
+                <div class="cake cake-white" data-letter="1">
+                    <div class="cake-top"></div>
+                    <span>🌸</span>
+                </div>
+
+                <div class="cake cake-brown" data-letter="2">
+                    <div class="cake-top"></div>
+                    <span>🍂</span>
+                </div>
+
+                <div class="cake cake-secret locked" id="secretCake">
+                    <div class="lock">🔒</div>
+                    <span>?</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="cake-names">
+
+            <button data-letter="0">
+                🥮<br>
+                <strong>Bánh đậu xanh</strong>
+                <small> thương lo lắm:></small>
+            </button>
+
+            <button data-letter="1">
+                🥮<br>
+                <strong>Bánh dẻo</strong>
+                <small>nhớ nhung nhiềuuuuu</small>
+            </button>
+
+            <button data-letter="2">
+                🥮<br>
+                <strong>Bánh nướng</strong>
+                <small>Những điều chưa nói</small>
+            </button>
+
+            <button class="secret-name">
+                🥮<br>
+                <strong>Bánh bí mật</strong>
+                <small>???</small>
+            </button>
+
+        </div>
+
+        <div class="bunny-message">
+            <span>🐇</span>
+            <p id="bunnyMessage">
+                Mở ba chiếc bánh nhỏ trước nhé...
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LETTER
+    ========================== -->
+
+    <div class="letter-overlay" id="letterOverlay">
+
+        <div class="letter">
+
+            <button class="close-letter" id="closeLetter">
+                ×
+            </button>
+
+            <div class="letter-bunny">
+                🐇
+            </div>
+
+            <p class="letter-label" id="letterLabel">
+                những điều tớ muốn kể...
+            </p>
+
+            <h2 id="letterTitle">
+                tớ lo cho cậu rất nhiều
+            </h2>
+
+            <div class="letter-content" id="letterContent"></div>
+
+            <div class="letter-footer">
+                🌙
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SECRET
+    ========================== -->
+
+    <section class="secret-section hidden" id="secretSection">
+
+        <div class="secret-stars"></div>
+
+        <div class="secret-bunny">
+            🐇
+        </div>
+
+        <p class="secret-small">
+            Cậu đã mở hết rùi
+        </p>
+
+        <h2>
+            Nhưng vẫn còn<br>
+            <span>một chiếc bánh nì.</span>
+        </h2>
+
+        <p class="secret-description">
+            Chiếc bánh này tớ vốn định giấu đi.
+        </p>
+
+        <button id="openSecret">
+            🥮 Mở nhân bí mật
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL
+    ========================== -->
+
+    <section class="final-section hidden" id="finalSection">
+
+        <div class="final-moon">
+            🌕
+        </div>
+
+        <div class="final-bunnies">
+            <div>🐇</div>
+            <div>🐰</div>
+        </div>
+
+        <div class="final-letter">
+
+            <div class="final-decoration">
+                🎀
+            </div>
+
+            <p class="final-small">
+                Điều cuối cùng tớ muốn nói...
+            </p>
+
+            <h2>
+                Gửi người tớ yêu:>
+            </h2>
+
+            <div id="finalContent"></div>
+
+            <div class="final-ending">
+
+                <div class="heart">
+                    ♡
+                </div>
+
+                <h3>
+                    Trung Thu vui nhé:3
+                </h3>
+
+                <p>
+                    và tớ vô cùng yêu cậu, xin đừng quên tớ nhé:>
+                </p>
+
+                <span>
+                    🌙 🐇 🎀
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Nhạc nền lãng mạn -->
+    <audio id="bgMusic" loop src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3"></audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
